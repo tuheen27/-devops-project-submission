@@ -1,21 +1,23 @@
-Project Report: Apex Solutions Website
+Project Report: Static Website Deployment on AWS
 
 Overview
-For this project, I developed a responsive, multi-page website for "Apex Solutions," a digital marketing and web design agency. The main goal was to build a professional digital presence that looks good on any device. I used standard HTML5 and CSS3 to keep things lightweight and fast, sticking to a modern color palette of dark gray and orange.
+This project focused on the end-to-end deployment of a five-page static website to establish a foundational DevOps workflow. The primary objective was to move from local development to a cloud-hosted environment, leveraging AWS services to learn resource provisioning, web server configuration, and production deployment practices.
 
-Step-by-Step Process
-1. Getting Started: I kicked things off by setting up my project folder and initializing Git so I could track my changes. I created the four main HTML files (Home, About, Services, Contact) and a blank CSS file.
-2. Building the Structure: I wrote the HTML code for the navigation bar, the hero section on the homepage, and the basic layouts for the other pages. I used a grid layout for the services to keep them organized.
-3. Styling: Once the structure was there, I used CSS to apply the branding. I chose a "Segoe UI" font for a clean look and set up the navigation to highlight whichever page the user is currently on.
-4. Adding Content: I swapped out the initial placeholder text with actual descriptions of the company and its services. I also grabbed some high-quality photos from Unsplash to give the site a more polished feel.
-5. Refining: Finally, I went through and tweaked a few things, like removing the fixed pricing from the services page to make the business model look more flexible.
+Step-by-step process
+1. Requirement Analysis & Planning: Defined the architectural scope and content layout for the static web application.
+2. Application Development: Developed the core static artifacts (HTML/CSS) for all five content pages.
+3. Version Control Integration: Implemented Git for source code management and pushed the repository to GitHub to ensure version tracking and collaborative readiness.
+4. Infrastructure Provisioning: Provisioned an AWS EC2 instance to host the application.
+5. Web Server Configuration: Installed and configured the Nginx web server on the EC2 instance to serve static content and handle HTTP requests.
+6. Network Stabilization: Allocated and associated an AWS Elastic IP to the instance to guarantee a persistent public endpoint even after reboots.
+7. Quality Assurance: Conducted final integration testing to verify page routing, link integrity, and overall functional stability.
 
-Errors I Faced
-- Messy Images: When I first added the team photo to the About page, it was huge. It completely broke the layout when I tried to view it on a smaller screen.
-- Generic Content: At first, I left a lot of "Lorem Ipsum" text in there. It made the whole site feel like a template rather than a real business.
-- Pricing Issues: I initially hard-coded prices like "$1,000+" for web design. I realized later that this might scare off clients or limit the company's ability to quote custom projects.
+Errors you faced
+- SSH Connectivity Failure: Connection timeouts and permission errors occurred when attempting to establish an SSH session to the EC2 instance over port 22.
+- Asset Resolution Failure: CSS stylesheets failed to load during the initial deployment, which rendered unstyled pages.
+- Nginx Service Failure: The Nginx web server refused to start due to syntax errors in the configuration file.
 
-How I Solved Them
-- Fixing the Images: I wrote a simple CSS class called `.responsive-image`. I set the max-width to 100% and the height to auto. This makes sure the image shrinks down nicely to fit whatever screen it's on.
-- Writing Real Copy: I took some time to write actual paragraphs about "driving business growth" and "cutting-edge design." It made a huge difference in how professional the site feels.
-- Removing Prices: I decided to just remove the pricing lines from the HTML entirely. Now, the services page focuses on the value provided, encouraging clients to reach out for a quote instead.
+How you solved them
+- Network Troubleshooting: Identified that the local network firewall blocked port 22, then connected via a mobile hotspot to establish the SSH tunnel successfully.
+- Path Debugging: Audited the directory structure and relative paths in the HTML files, correcting references so CSS assets were properly loaded.
+- Configuration Audit: Validated the Nginx configuration syntax and cross-referenced AWS documentation and community posts to correct the server block directives, allowing the service to start normally.
